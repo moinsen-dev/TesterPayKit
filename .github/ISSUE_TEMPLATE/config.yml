@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Questions & Discussions
+    url: https://github.com/moinsen-dev/TesterPayKit/discussions
+    about: Ask questions, share ideas, or chat with the community.
+  - name: 🌐 Website & docs
+    url: https://testerpaykit.com
+    about: Product overview and documentation.
+  - name: 🔒 Report a security issue privately
+    url: https://github.com/moinsen-dev/TesterPayKit/blob/main/SECURITY.md
+    about: Please do not file security issues as public issues.

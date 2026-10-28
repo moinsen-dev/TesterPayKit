@@ -1,0 +1,21 @@
+{
+  "name": "tpk",
+  "version": "0.6.0",
+  "description": "TesterPayKit Claude Code plugin. Skills are namespaced /tpk:* (tpk:bootstrap, tpk:integrate, tpk:status, tpk:cli-install, tpk:fix-next-bug) so they're easy to find among other skills. They wrap the `tpk` CLI (pub.dev: tpk_cli) to bootstrap projects with payout rules, integrate the SDK into Flutter (with moinsen_runapp), Expo/React-Native, Web/TypeScript, or native Swift (iOS/macOS, early access) apps, query status, and CLOSE THE AGENTIC FEEDBACK LOOP via /tpk:fix-next-bug. Also registers the read-only `tpk_mcp` MCP server (sessions, bugs, bug context). Real testers report, Claude fixes, you ship.",
+  "author": {
+    "name": "TesterPayKit",
+    "url": "https://testerpaykit.com"
+  },
+  "skills": [
+    "./skills/bootstrap",
+    "./skills/integrate",
+    "./skills/status",
+    "./skills/cli-install",
+    "./skills/fix-next-bug"
+  ],
+  "mcpServers": {
+    "tpk": {
+      "command": "tpk_mcp"
+    }
+  }
+}

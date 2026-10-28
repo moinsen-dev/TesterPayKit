@@ -1,0 +1,27 @@
+name: 🐞 Bug report
+description: Something in the TesterPayKit SDK or CLI isn't working
+labels: [bug]
+body:
+  - type: input
+    id: package
+    attributes:
+      label: Package & version
+      placeholder: "testerpaykit 0.4.0 · tpk_cli 0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Flutter version · platform (iOS/Android/web/desktop) · OS"
