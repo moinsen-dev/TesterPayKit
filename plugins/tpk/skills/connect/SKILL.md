@@ -55,6 +55,11 @@ server stays disconnected (HTTP 401) — nothing else breaks.
    did and said (step verdicts with notes, would use / pay / recommend,
    bug reports), `list_bugs` / `get_bug` for details.
 
+Send every call once. A draft created by mistake (wrong bundle id,
+duplicate tasks): `discard_test_order` deletes the whole draft,
+`remove_test_task` one task. Both are refused once the order was
+published or anything is attached; then `close_test_order` is the way.
+
 Every result carries `origin`: `"human"` for real people, `"ai"` for
 TesterPayKit's own AI testers. `get_test_results` returns only human
 results unless `include_ai` is true. Keep the two apart when you report —

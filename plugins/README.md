@@ -50,11 +50,18 @@ export TPK_API_TOKEN=tpk_pat_…
 ```
 
 Tools: `create_test_order`, `publish_test_order`, `close_test_order`,
-`get_test_order`, `get_test_results`, `list_test_orders`, `list_bugs`,
-`get_bug`. Creating an order is free and keeps the listing closed. Opening it
-costs money, so `publish_test_order` first returns the price and a confirm
-token; it only acts on a second call after you said yes. Results are marked
+`discard_test_order`, `remove_test_task`, `get_test_order`,
+`get_test_results`, `list_test_orders`, `list_bugs`, `get_bug`. Creating an
+order is free and keeps the listing closed. Opening it costs money, so
+`publish_test_order` first returns the price and a confirm token; it only
+acts on a second call after you said yes. Results are marked
 `origin: "human"` (real people) or `origin: "ai"` (TesterPayKit's AI testers).
+
+A draft made by mistake can be cleaned up: `discard_test_order` deletes the
+whole draft, `remove_test_task` one task of it. Both only work before the
+order was ever published and while nothing (applications, sessions, bugs,
+runs, payouts) is attached. A published order is never deleted over MCP;
+stop it with `close_test_order`.
 
 Without the token the server stays disconnected; the skills still work.
 
