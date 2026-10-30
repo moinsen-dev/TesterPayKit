@@ -9,7 +9,7 @@ for AI-built apps. The marketplace manifest sits at the repository root
 
 | Plugin | Description |
 |---|---|
-| **tpk** | Drives the TesterPayKit crowd-testing lifecycle from inside a Claude Code session — install the `tpk` CLI from pub.dev, bootstrap a project (incl. payout rule), integrate an SDK, query sessions/bugs/recruiting, and close the agentic feedback loop with `/tpk:fix-next-bug`. All skills are namespaced `/tpk:*`. Also registers the read-only `tpk` MCP server (`tpk_mcp`, ships with the CLI). |
+| **tpk** | Drives the TesterPayKit crowd-testing lifecycle from inside a Claude Code session — install the `tpk` CLI from pub.dev, bootstrap a project (incl. payout rule), integrate an SDK, query sessions/bugs/recruiting, and close the agentic feedback loop with `/tpk:fix-next-bug`. All skills are namespaced `/tpk:*`. Also registers the remote `testerpaykit` MCP server (order tests with real testers, read results; needs `TPK_API_TOKEN`, see `/tpk:connect`). |
 
 ## Supported SDK targets (`/tpk:integrate`)
 
@@ -33,10 +33,30 @@ claude plugin marketplace add moinsen-dev/TesterPayKit
 claude plugin install tpk@testerpaykit
 ```
 
-You get five skills (`/tpk:cli-install`, `/tpk:bootstrap`,
-`/tpk:integrate`, `/tpk:status`, `/tpk:fix-next-bug`) plus the `tpk` MCP server.
-The CLI itself installs with `dart pub global activate tpk_cli` —
-the `cli-install` skill walks Claude through it.
+You get six skills (`/tpk:connect`, `/tpk:cli-install`, `/tpk:bootstrap`,
+`/tpk:integrate`, `/tpk:status`, `/tpk:fix-next-bug`) plus the remote
+`testerpaykit` MCP server. The CLI itself installs with
+`dart pub global activate tpk_cli` — the `cli-install` skill walks Claude
+through it.
+
+## Remote MCP server
+
+The plugin connects to `https://api.testerpaykit.com/mcp` with the token in
+`TPK_API_TOKEN`. Create the token in the console (app.testerpaykit.com →
+Profile → Access tokens for Claude Code) and export it in your shell profile:
+
+```bash
+export TPK_API_TOKEN=tpk_pat_…
+```
+
+Tools: `create_test_order`, `publish_test_order`, `close_test_order`,
+`get_test_order`, `get_test_results`, `list_test_orders`, `list_bugs`,
+`get_bug`. Creating an order is free and keeps the listing closed. Opening it
+costs money, so `publish_test_order` first returns the price and a confirm
+token; it only acts on a second call after you said yes. Results are marked
+`origin: "human"` (real people) or `origin: "ai"` (TesterPayKit's AI testers).
+
+Without the token the server stays disconnected; the skills still work.
 
 ## Layout
 
@@ -44,9 +64,9 @@ the `cli-install` skill walks Claude through it.
 .claude-plugin/marketplace.json   # registry — names + paths of plugins
 plugins/
 └── tpk/
-    ├── .claude-plugin/plugin.json  # manifest + MCP server
+    ├── .claude-plugin/plugin.json  # manifest + remote MCP server
     ├── LICENSE                     # MIT
-    └── skills/                     # bootstrap, integrate (+ references/),
+    └── skills/                     # connect, bootstrap, integrate (+ references/),
                                     # status, cli-install, fix-next-bug
 ```
 

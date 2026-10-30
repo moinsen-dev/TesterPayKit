@@ -5,9 +5,8 @@ description: >
   PATH and usable from any directory. Trigger when the user says
   "install tpk", "install TesterPayKit CLI", "set up tpk", "global tpk",
   or asks how to make `tpk` reachable from any terminal. Also trigger on
-  `command not found: tpk`. Installs the `tpk_cli` package, which ships
-  TWO executables: `tpk` (the CLI) and `tpk_mcp` (a read-only MCP server
-  over the same server data).
+  `command not found: tpk`. Installs the `tpk_cli` package (the `tpk`
+  CLI, plus `tpk_mcp`, a local read-only MCP server).
 ---
 
 # Install the tpk CLI globally
@@ -46,10 +45,11 @@ on pub.dev as `tpk_cli` — no repo checkout needed.
 
 - `tpk` — coordinator CLI (login, project, bug, session, job, tester,
   payout-rule). Every command supports `--json` for agentic use.
-- `tpk_mcp` — read-only MCP server (9 tools: sessions, bugs, bug
-  context, tester queue). This plugin registers it automatically as the
-  `tpk` MCP server; it reuses the credentials from `tpk login`, so log
-  in once via the CLI and the MCP tools work too.
+- `tpk_mcp` — local read-only MCP server (sessions, bugs, bug context,
+  tester queue) using the `tpk login` credentials. This plugin no longer
+  registers it; it uses the remote `testerpaykit` MCP server instead
+  (`/tpk:connect`). Register `tpk_mcp` yourself only if you need it:
+  `claude mcp add tpk -- tpk_mcp`.
 
 ## Troubleshooting
 

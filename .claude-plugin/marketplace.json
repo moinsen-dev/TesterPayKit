@@ -5,15 +5,15 @@
     "url": "https://testerpaykit.com"
   },
   "metadata": {
-    "description": "Official TesterPayKit Claude Code marketplace — ships the tpk plugin (tpk CLI skills + read-only tpk MCP server for the TPK crowd-testing platform).",
-    "version": "0.6.0"
+    "description": "Official TesterPayKit Claude Code marketplace — ships the tpk plugin (tpk CLI skills + the remote testerpaykit MCP server for ordering tests with real testers on the TPK crowd-testing platform).",
+    "version": "0.7.0"
   },
   "plugins": [
     {
       "name": "tpk",
       "source": "./plugins/tpk",
-      "description": "TesterPayKit plugin — bootstrap a TPK project incl. payout rule, integrate the SDK into Flutter (testerpaykit + moinsen_runapp), Expo/React-Native (@testerpaykit/expo), Web/TypeScript (@testerpaykit/react), or native Swift (TesterPayKit Swift Package, early access) apps, query sessions/bugs/recruiting, install the tpk CLI from pub.dev, register the read-only tpk MCP server, and close the agentic feedback loop via /tpk:fix-next-bug. Skills are namespaced /tpk:* so they're easy to find. Real testers report, Claude fixes, you ship.",
-      "version": "0.6.0",
+      "description": "TesterPayKit plugin — bootstrap a TPK project incl. payout rule, integrate the SDK into Flutter (testerpaykit + moinsen_runapp), Expo/React-Native (@testerpaykit/expo), Web/TypeScript (@testerpaykit/react), or native Swift (TesterPayKit Swift Package, early access) apps, query sessions/bugs/recruiting, install the tpk CLI from pub.dev, order tests with real human testers and read their results over the remote testerpaykit MCP server (/tpk:connect), and close the agentic feedback loop via /tpk:fix-next-bug. Skills are namespaced /tpk:* so they're easy to find. Real testers report, Claude fixes, you ship.",
+      "version": "0.7.0",
       "author": {
         "name": "TesterPayKit",
         "url": "https://testerpaykit.com"

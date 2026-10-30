@@ -22,8 +22,10 @@ claude plugin install tpk@testerpaykit
 
 You get `/tpk:cli-install`, `/tpk:bootstrap` (creates your project),
 `/tpk:integrate` (adds the SDK to a Flutter, Expo or web app), `/tpk:status`
-and `/tpk:fix-next-bug`, plus the read-only `tpk` MCP server. Details:
-[plugins/README.md](plugins/README.md).
+and `/tpk:fix-next-bug`, plus the remote `testerpaykit` MCP server: Claude
+orders a test with real people and reads their sessions, verdicts and bug
+reports. Connect it once with a token from the console — `/tpk:connect`
+walks you through it. Details: [plugins/README.md](plugins/README.md).
 
 ## Packages
 
@@ -31,7 +33,7 @@ and `/tpk:fix-next-bug`, plus the read-only `tpk` MCP server. Details:
 |---|---|---|
 | `testerpaykit` — Flutter SDK | [pub.dev](https://pub.dev/packages/testerpaykit) | `flutter pub add testerpaykit` |
 | `@testerpaykit/expo` — Expo / React Native SDK | [npm](https://www.npmjs.com/package/@testerpaykit/expo) | `npx expo install @testerpaykit/expo` |
-| `tpk_cli` — CLI + MCP server | [pub.dev](https://pub.dev/packages/tpk_cli) | `dart pub global activate tpk_cli` |
+| `tpk_cli` — CLI | [pub.dev](https://pub.dev/packages/tpk_cli) | `dart pub global activate tpk_cli` |
 
 A coordinator account is needed to create projects; sign-up is currently by
 invitation (business@moinsen.dev).
