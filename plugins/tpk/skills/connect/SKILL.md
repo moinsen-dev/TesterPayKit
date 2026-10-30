@@ -45,6 +45,11 @@ server stays disconnected (HTTP 401) — nothing else breaks.
    `platforms`, `tester_count`, `reward_per_tester_eur` (0 = unpaid
    community test) and `tasks` (title + steps). Free; the listing stays
    closed. Calling it again with the same bundle id reuses the project.
+   For a native app always pass `bundle_id`, even with `app_url`: without
+   it the host of the URL becomes the bundle id. If a project with the
+   same name or app address already exists, the call creates nothing and
+   names it; continue with its `bundle_id`, or `new_project: true` if it
+   really is a separate app.
 2. `publish_test_order` **costs money.** Called without `confirm_token`
    it changes nothing and returns the price (testers × reward) and a
    token valid for 15 minutes. Show the price to the user and wait for an

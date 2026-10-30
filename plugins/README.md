@@ -57,6 +57,11 @@ order is free and keeps the listing closed. Opening it costs money, so
 acts on a second call after you said yes. Results are marked
 `origin: "human"` (real people) or `origin: "ai"` (TesterPayKit's AI testers).
 
+For a native app pass `bundle_id`; without it the host of `app_url` becomes
+the bundle id. If you already have a project with the same name or app
+address, `create_test_order` creates nothing and names that project instead
+(`new_project: true` overrides).
+
 A draft made by mistake can be cleaned up: `discard_test_order` deletes the
 whole draft, `remove_test_task` one task of it. Both only work before the
 order was ever published and while nothing (applications, sessions, bugs,
