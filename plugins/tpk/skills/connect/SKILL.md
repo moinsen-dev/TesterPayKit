@@ -30,9 +30,10 @@ server stays disconnected (HTTP 401) — nothing else breaks.
    ```bash
    export TPK_API_TOKEN=tpk_pat_…
    ```
-   Alternative without the plugin's server, per project: the console shows
-   a ready `claude mcp add --transport http testerpaykit … --header
-   "Authorization: Bearer …"` command next to the new token.
+   Never put the token into a `claude mcp add --header` command (it lands in
+   plaintext in the Claude config). If the user keeps secrets in a store,
+   register the server with a `headersHelper` that prints
+   `{"Authorization":"Bearer <token>"}` from that store instead.
 
 3. **Check.** After the restart the tools `list_test_orders`,
    `create_test_order`, … are available. Call `list_test_orders`; an empty
