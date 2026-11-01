@@ -21,10 +21,12 @@ claude plugin install tpk@testerpaykit
 ```
 
 You get `/tpk:cli-install`, `/tpk:bootstrap` (creates your project),
-`/tpk:integrate` (adds the SDK to a Flutter, Expo or web app), `/tpk:status`
-and `/tpk:fix-next-bug`, plus the remote `testerpaykit` MCP server: Claude
-orders a test with real people and reads their sessions, verdicts and bug
-reports. Connect it once with a token from the console — `/tpk:connect`
+`/tpk:integrate` (adds the SDK to a Flutter, Expo, web or Swift app),
+`/tpk:status`, `/tpk:fix-next-bug` and `/tpk:live`, plus the remote
+`testerpaykit` MCP server: Claude orders a test with real people and reads
+their sessions, verdicts and bug reports — and, with the live link switched
+on in your own app, sees its screen, reads the notes you send from it, taps
+through it and keeps a checklist of what testers should test. Connect it once with a token from the console — `/tpk:connect`
 walks you through it. Details: [plugins/README.md](plugins/README.md).
 
 ## Packages
@@ -33,6 +35,10 @@ walks you through it. Details: [plugins/README.md](plugins/README.md).
 |---|---|---|
 | `testerpaykit` — Flutter SDK | [pub.dev](https://pub.dev/packages/testerpaykit) | `flutter pub add testerpaykit` |
 | `@testerpaykit/expo` — Expo / React Native SDK | [npm](https://www.npmjs.com/package/@testerpaykit/expo) | `npx expo install @testerpaykit/expo` |
+| `@testerpaykit/react` — Web / React SDK | [npm](https://www.npmjs.com/package/@testerpaykit/react) | `npm install @testerpaykit/react` |
+
+The SDKs (Flutter, Expo, Web, Swift) ship as one release train with the same
+version number and the same features — currently 1.2.0.
 | `tpk_cli` — CLI | [pub.dev](https://pub.dev/packages/tpk_cli) | `dart pub global activate tpk_cli` |
 
 A coordinator account is needed to create projects; sign-up is currently by
