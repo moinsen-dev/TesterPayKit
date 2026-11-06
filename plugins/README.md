@@ -33,11 +33,15 @@ claude plugin marketplace add moinsen-dev/TesterPayKit
 claude plugin install tpk@testerpaykit
 ```
 
-You get six skills (`/tpk:connect`, `/tpk:cli-install`, `/tpk:bootstrap`,
-`/tpk:integrate`, `/tpk:status`, `/tpk:fix-next-bug`) plus the remote
+You get eight skills (`/tpk:guide`, `/tpk:connect`, `/tpk:cli-install`,
+`/tpk:bootstrap`, `/tpk:integrate`, `/tpk:status`, `/tpk:live`,
+`/tpk:fix-next-bug`) plus the remote
 `testerpaykit` MCP server. The CLI itself installs with
 `dart pub global activate tpk_cli` — the `cli-install` skill walks Claude
-through it.
+through it. New to TesterPayKit? Start with `/tpk:guide`: nine short
+interactive lessons with hands-on steps in your own setup; progress is
+saved in `~/.config/testerpaykit/guide-progress.json`, so you can stop and
+resume any time.
 
 ## Remote MCP server
 

@@ -20,7 +20,7 @@ claude plugin marketplace add moinsen-dev/TesterPayKit
 claude plugin install tpk@testerpaykit
 ```
 
-You get `/tpk:cli-install`, `/tpk:bootstrap` (creates your project),
+You get `/tpk:guide` (an interactive course through the whole system, with saved progress), `/tpk:cli-install`, `/tpk:bootstrap` (creates your project),
 `/tpk:integrate` (adds the SDK to a Flutter, Expo, web or Swift app),
 `/tpk:status`, `/tpk:fix-next-bug` and `/tpk:live`, plus the remote
 `testerpaykit` MCP server: Claude orders a test with real people and reads
